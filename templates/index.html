@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EduPrime - Student Management</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f1f5f9;
+            margin: 0;
+        }
+
+        header {
+            background: #172554;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 80px;
+        }
+
+        .card {
+            background: white;
+            padding: 35px;
+            width: 220px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px #ccc;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>EduPrime</h1>
+    <p>Student Management System</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Admin</h2>
+        <p>Manage Students and Faculty</p>
+        <button onclick="location.href='/login/admin'">Login</button>
+    </div>
+
+    <div class="card">
+        <h2>Faculty</h2>
+        <p>Manage Attendance and Tasks</p>
+        <button onclick="location.href='/login/faculty'">Login</button>
+    </div>
+
+    <div class="card">
+        <h2>Student</h2>
+        <p>View Attendance and Exams</p>
+        <button onclick="location.href='/login/student'">Login</button>
+    </div>
+
+</div>
+
+</body>
+</html>
