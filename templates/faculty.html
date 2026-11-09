@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EduPrime - Faculty Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+        }
+
+        header {
+            background: #064e3b;
+            color: white;
+            padding: 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logout {
+            color: white;
+            text-decoration: none;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #064e3b;
+            box-shadow: 0 3px 10px #0001;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px #0002;
+        }
+
+        .icon {
+            font-size: 35px;
+        }
+
+        .card h3 {
+            color: #047857;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>EduPrime Faculty</h2>
+    <a class="logout" href="/logout">Logout</a>
+</header>
+
+<div class="container">
+
+    <h1>Faculty Dashboard</h1>
+    <p>Welcome, {{ email }}</p>
+
+    <div class="cards">
+
+        <a href="/faculty/students" class="card">
+            <div class="icon">👨‍🎓</div>
+            <h3>View Students</h3>
+            <p>View registered students.</p>
+        </a>
+
+        <a href="/faculty/attendance" class="card">
+            <div class="icon">📋</div>
+            <h3>Manage Attendance</h3>
+            <p>Mark and view attendance.</p>
+        </a>
+
+        <a href="/faculty/assignments" class="card">
+            <div class="icon">📝</div>
+            <h3>Assignments</h3>
+            <p>Create and manage assignments.</p>
+        </a>
+
+        <a href="/faculty/submissions" class="card">
+            <div class="icon">📂</div>
+            <h3>Student Submissions</h3>
+            <p>Review submitted assignments.</p>
+        </a>
+
+        <a href="/faculty/exams" class="card">
+            <div class="icon">📚</div>
+            <h3>MCQ Exams</h3>
+            <p>Create examination questions.</p>
+        </a>
+
+        <a href="/faculty/results" class="card">
+            <div class="icon">📊</div>
+            <h3>Student Results</h3>
+            <p>View student performance.</p>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

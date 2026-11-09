@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Assignments - EduPrime</title>
+</head>
+<body style="font-family:Arial;background:#f1f5f9;padding:30px">
+
+    <h1>Faculty Assignment Management</h1>
+
+    <form method="POST">
+        <label>Assignment Title</label><br>
+        <input type="text" name="title" required><br><br>
+
+        <label>Description</label><br>
+        <textarea name="description" required></textarea><br><br>
+
+        <label>Due Date</label><br>
+        <input type="date" name="due_date" required><br><br>
+
+        <button type="submit">Create Assignment</button>
+    </form>
+
+    <h2>Created Assignments</h2>
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Due Date</th>
+        </tr>
+
+        {% for assignment in assignments %}
+        <tr>
+            <td>{{ assignment.title }}</td>
+            <td>{{ assignment.description }}</td>
+            <td>{{ assignment.due_date }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="3">No assignments created yet.</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="/faculty">Back to Dashboard</a>
+
+</body>
+</html>

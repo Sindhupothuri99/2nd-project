@@ -6,3 +6,21 @@ __pycache__/
 *.db
 *.sqlite3
 instance/
+
+# Environment and secrets
+.env
+*.pem
+*.key
+
+# Database files
+*.db
+instance/
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Backups and local binaries
+*.backup
+kubectl

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EduPrime - Student Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+        }
+
+        header {
+            background: #1e3a8a;
+            color: white;
+            padding: 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logout {
+            color: white;
+            text-decoration: none;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #1e3a8a;
+            box-shadow: 0 3px 10px #0001;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px #0002;
+        }
+
+        .icon {
+            font-size: 35px;
+        }
+
+        .card h3 {
+            color: #2563eb;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>EduPrime Student</h2>
+    <a class="logout" href="/logout">Logout</a>
+</header>
+
+<div class="container">
+
+    <h1>Student Dashboard</h1>
+    <p>Welcome, {{ email }}</p>
+
+    <div class="cards">
+
+        <a href="/student/profile" class="card">
+            <div class="icon">👤</div>
+            <h3>My Profile</h3>
+            <p>View your account details.</p>
+        </a>
+
+        <a href="/student/courses" class="card">
+            <div class="icon">📚</div>
+            <h3>My Courses</h3>
+            <p>View your courses.</p>
+        </a>
+
+        <a href="/student/attendance" class="card">
+            <div class="icon">📋</div>
+            <h3>My Attendance</h3>
+            <p>Check your attendance.</p>
+        </a>
+
+        <a href="/student/assignments" class="card">
+            <div class="icon">📝</div>
+            <h3>Assignments</h3>
+            <p>View and submit assignments.</p>
+        </a>
+
+        <a href="/student/exams" class="card">
+            <div class="icon">💻</div>
+            <h3>Online Exams</h3>
+            <p>Attempt MCQ examinations.</p>
+        </a>
+
+        <a href="/student/results" class="card">
+            <div class="icon">🏆</div>
+            <h3>My Results</h3>
+            <p>View your examination results.</p>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

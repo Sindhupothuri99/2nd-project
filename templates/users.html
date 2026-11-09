@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EduPrime - User Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            margin: 0;
+        }
+
+        header {
+            background: #172554;
+            color: white;
+            padding: 20px;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #2563eb;
+            color: white;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>EduPrime - User Management</h2>
+</header>
+
+<div class="container">
+
+    <a class="back" href="/admin">← Back to Dashboard</a>
+
+    <h1>{{ title }}</h1>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Role</th>
+        </tr>
+
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.role }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="3">No users found.</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>O
+

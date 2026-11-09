@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EduPrime - Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+        }
+
+        header {
+            background: #172554;
+            color: white;
+            padding: 22px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px #0001;
+            text-decoration: none;
+            color: #172554;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px #0002;
+        }
+
+        .number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .logout {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>EduPrime Admin</h2>
+    <a class="logout" href="/logout">Logout</a>
+</header>
+
+<div class="container">
+
+    <h1>Admin Dashboard</h1>
+    <p>Welcome, {{ email }}</p>
+
+    <div class="cards">
+
+        <a href="/admin/users/student" class="card">
+            <h3>Manage Students</h3>
+            <div class="number">{{ students }}</div>
+            <p>View student accounts</p>
+        </a>
+
+        <a href="/admin/users/faculty" class="card">
+            <h3>Manage Faculty</h3>
+            <div class="number">{{ faculty }}</div>
+            <p>View faculty accounts</p>
+        </a>
+
+        <a href="/admin/users" class="card">
+            <h3>All Users</h3>
+            <div class="number">{{ total_users }}</div>
+            <p>View all registered accounts</p>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Assignments - EduPrime</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f1f5f9;
+            padding: 30px;
+        }
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>My Assignments</h1>
+
+    <table>
+        <tr>
+            <th>Assignment Title</th>
+            <th>Description</th>
+            <th>Due Date</th>
+        </tr>
+
+        {% for assignment in assignments %}
+        <tr>
+            <td>{{ assignment.title }}</td>
+            <td>{{ assignment.description }}</td>
+            <td>{{ assignment.due_date }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="3">No assignments available.</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="/student">Back to Dashboard</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Attendance - EduPrime</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f1f5f9;
+            padding: 30px;
+        }
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Attendance</h1>
+
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+
+            {% for record in records %}
+            <tr>
+                <td>{{ record.attendance_date }}</td>
+                <td>{{ record.status }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="2">No attendance records found.</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <br>
+        <a href="/student">Back to Dashboard</a>
+    </div>
+</body>
+</html>O
+
