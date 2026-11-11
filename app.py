@@ -1,6 +1,7 @@
+from datetime import date
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
-from werkzeug.security import check_password_hash
+from werkzeug.security import check_password_hash, generate_password_hash
 from functools import wraps
 from config import Config
 
@@ -163,6 +164,44 @@ def admin_users_by_role(role):
         users=users,
         title=f'{role.title()} Accounts'
     )
+@app.route('/admin/create-user/<role>', methods=['GET', 'POST'])
+@role_required('admin')
+def create_user(role):
+
+    if role not in ('student', 'faculty'):
+        return "Invalid role", 404
+
+    error = None
+    success = None
+
+    if request.method == 'POST':
+        email = request.form.get('email', '').strip().lower()
+        password = request.form.get('password', '')
+
+        if not email or not password:
+            error = "Email and password are required."
+        elif len(password) < 8:
+            error = "Password must contain at least 8 characters."
+        elif User.query.filter_by(email=email).first():
+            error = "This email address already exists."
+        else:
+            user = User(
+                email=email,
+                password=generate_password_hash(password),
+                role=role
+            )
+            db.session.add(user)
+            db.session.commit()
+            success = f"{role.title()} account created successfully."
+
+    return render_template(
+        'create_user.html',
+        role=role.title(),
+        error=error,
+        success=success
+    )
+
+
 @app.route('/faculty')
 @role_required('faculty')
 def faculty():
